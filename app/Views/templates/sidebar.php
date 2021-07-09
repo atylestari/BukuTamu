@@ -7,15 +7,17 @@
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="ti-user menu-icon"></i>
-                <span class="menu-title">Manage User</span>
-            </a>
-        </li>
+        <?php if (session()->get('level') == 'Site Administrator') { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="ti-user menu-icon"></i>
+                    <span class="menu-title">Manage User</span>
+                </a>
+            </li>
+        <?php } ?>
 
         <br>
-        <li class="nav-item">
+        <li class="nav-item" onclick="logout('<?= base_url('login/logout'); ?>')">
             <a class="nav-link" href="#">
                 <i class="ti-power-off menu-icon text-danger"></i>
                 <span class="menu-title text-danger">Logout</span>

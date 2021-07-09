@@ -30,12 +30,13 @@
                         <div class="row justify-content-center">
                             <div class="col">
                                 <div class="card my-3 py-2">
-                                    <div class="card-body py-4 px-5">
+                                    <div class="card-body py-5 px-5">
                                         <div class="brand-logo">
                                             <img src="<?= base_url(); ?>/images/koi.png" class="mx-auto d-block" alt="logo">
                                         </div>
                                         <h3 class="text-center font-weight-bolder">LOGIN BUKU TAMU</h3>
                                         <br><br>
+                                        <?= form_open('login/cek_login') ?>
                                         <form class="forms-sample">
                                             <div class="form-group">
                                                 <label for="username">Username</label>
@@ -45,16 +46,11 @@
                                                 <label for="password">Password</label>
                                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                                             </div>
-                                            <div class="form-check form-check-flat form-check-primary">
-                                                <label class="form-check-label">
-                                                    <input type="checkbox" class="form-check-input" name="remember">
-                                                    Remember me
-                                                </label>
-                                            </div>
                                             <div class="mt-3">
                                                 <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="LOGIN">
                                             </div>
                                         </form>
+                                        <?= form_close(); ?>
                                     </div>
                                 </div>
                             </div>

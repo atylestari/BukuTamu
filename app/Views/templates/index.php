@@ -8,6 +8,12 @@
 
     <title><?= $title; ?></title>
 
+    <script type="text/javascript">
+        function logout(url) {
+            window.location = url;
+        }
+    </script>
+
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/feather/feather.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/vendor.bundle.base.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/css/style.css">

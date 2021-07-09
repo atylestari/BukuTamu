@@ -8,7 +8,7 @@ class Admin extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Dashboard Buku Tamu | Komite Olimpiade Indonesia'
+            'title' => 'Dashboard Buku Tamu | Komite Olimpiade Indonesia',
         ];
 
         return view('admin/index', $data);

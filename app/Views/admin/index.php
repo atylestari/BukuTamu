@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div>
-                    <h3 class="card-title font-weight-bold">DAFTAR TAMU NOC INDONESIA</h3>
+                    <h3 class="card-title font-weight-bold"><?= $judul; ?></h3>
                     <br>
                     <div class="card">
                         <div class="card-body">
@@ -23,8 +23,10 @@
                                                         <th>Instansi</th>
                                                         <th>Email</th>
                                                         <th>Nomor Telepon</th>
-                                                        <th>Bertemu Dengan</th>
-                                                        <th>Lainnya</th>
+                                                        <?php if (session()->get('level') == 'Site Administrator') { ?>
+                                                            <th>Bertemu Dengan</th>
+                                                            <th>Lainnya</th>
+                                                        <?php } ?>
                                                         <th>Keperluan</th>
                                                         <th>Waktu Bertemu</th>
                                                         <th>Tanggal Bertemu</th>
@@ -32,42 +34,29 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>COC</td>
-                                                        <td>tiger@gmail.com</td>
-                                                        <td>085336251765</td>
-                                                        <td>Ketua Umum</td>
-                                                        <td></td>
-                                                        <td>Tender</td>
-                                                        <td>13.00 PM</td>
-                                                        <td>2021/06/28</td>
-                                                        <td>
-                                                            <button class="btn btn-primary ti-pencil-alt">
-                                                            </button>
-                                                            <button class="btn btn-danger ti-trash">
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Harry Potter</td>
-                                                        <td>Griffyndor</td>
-                                                        <td>harry@gmail.com</td>
-                                                        <td>081324562776</td>
-                                                        <td>Sekretaris Jenderal</td>
-                                                        <td></td>
-                                                        <td>Webinar</td>
-                                                        <td>10.00 PM</td>
-                                                        <td>2021/06/29</td>
-                                                        <td>
-                                                            <button onclick="window.location.href='<?= base_url('admin/edit_tamu') ?>';" class="btn btn-primary ti-pencil-alt">
-                                                            </button>
-                                                            <button class="btn btn-danger ti-trash">
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                                    <?php $no = 1; ?>
+                                                    <?php foreach ($form as $key => $value) { ?>
+                                                        <tr>
+                                                            <td><?= $no++; ?></td>
+                                                            <td><?= $value['nama']; ?></td>
+                                                            <td><?= $value['instansi']; ?></td>
+                                                            <td><?= $value['email']; ?></td>
+                                                            <td><?= $value['kontak']; ?></td>
+                                                            <?php if (session()->get('level') == 'Site Administrator') { ?>
+                                                                <td><?= $value['bertemu']; ?></td>
+                                                                <td><?= $value['lainnya']; ?></td>
+                                                            <?php } ?>
+                                                            <td><?= $value['keperluan']; ?></td>
+                                                            <td><?= $value['waktu']; ?></td>
+                                                            <td><?= $value['tanggal']; ?></td>
+                                                            <td>
+                                                                <button onclick="window.location.href='<?= base_url('admin/edit_tamu') ?>';" class="btn btn-primary ti-pencil-alt">
+                                                                </button>
+                                                                <button class="btn btn-danger ti-trash">
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>

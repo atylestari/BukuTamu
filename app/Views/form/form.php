@@ -10,7 +10,7 @@
 
     <script type="text/javascript">
         function cek(that) {
-            if (that.value == "lainnya") {
+            if (that.value == "Lainnya") {
                 document.getElementById("jikalain").style.display = "block";
             } else {
                 document.getElementById("jikalain").style.display = "none";
@@ -61,10 +61,10 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select onchange="cek(this)" class="form-control" id="bertemu" name="bertemu" placeholder="Bertemu Dengan" required>
-                                                        <option disabled>Bertemu dengan</option>
-                                                        <option value="ketum">Ketua Umum</option>
-                                                        <option value="sekjen">Sekertaris Jenderal</option>
-                                                        <option value="lainnya">Lainnya</option>
+                                                        <option selected disabled>Bertemu dengan</option>
+                                                        <option value="Ketum">Ketua Umum</option>
+                                                        <option value="Sekjen">Sekretaris Jenderal</option>
+                                                        <option value="Lainnya">Lainnya</option>
                                                     </select>
                                                 </div>
                                                 <div id="jikalain" class="form-group" style="display: none">
