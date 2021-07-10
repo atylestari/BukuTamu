@@ -14,7 +14,6 @@
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profil">
-                    <img src="<?= base_url(); ?>/images/face28.jpg" alt="profile" />
                 </a>
             </li>
         </ul>

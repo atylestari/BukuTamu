@@ -47,8 +47,9 @@
                                         <h3 class="text-center font-weight-bolder">FORM BUKU TAMU</h4>
                                             <br>
                                             <form class="forms-sample">
+                                                <?= csrf_field(); ?>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" placeholder="Nama" required>
+                                                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" placeholder="Nama" autofocus required>
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control form-control-lg" id="instansi" name="instansi" placeholder="Instansi" required>
@@ -61,13 +62,13 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <select onchange="cek(this)" class="form-control" id="bertemu" name="bertemu" placeholder="Bertemu Dengan" required>
-                                                        <option selected disabled>Bertemu dengan</option>
-                                                        <option value="Ketum">Ketua Umum</option>
-                                                        <option value="Sekjen">Sekretaris Jenderal</option>
-                                                        <option value="Lainnya">Lainnya</option>
+                                                        <option disabled>Bertemu dengan</option>
+                                                        <option value="Ketua Umum">Ketua Umum</option>
+                                                        <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
+                                                        <option onclick="cek()" value="Lainnya">Lainnya</option>
                                                     </select>
                                                 </div>
-                                                <div id="jikalain" class="form-group" style="display: none">
+                                                <div id="jikalain" class="form-group" style="display: none;">
                                                     <input type="text" class="form-control form-control-lg" id="jikalain" name="jikalain" placeholder="Sebutkan (jika lainnya)" required>
                                                 </div>
                                                 <div class="form-group">
@@ -81,7 +82,7 @@
                                                     <label for="tanggal">Tanggal Bertemu</label>
                                                     <input type="date" class="form-control form-control-lg" id="tanggal" name="tanggal" required>
                                                 </div>
-                                                <input type="submit" class="btn btn-primary btn-block" name="kirim" value="Kirim">
+                                                <button type="submit" class="btn btn-primary btn-block" name="submit" value="Kirim">Kirim</button>
                                             </form>
                                     </div>
                                 </div>

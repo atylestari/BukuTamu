@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div>
-                    <h3 class="card-title font-weight-bold"><?= $judul; ?></h3>
+                    <h3 class="card-title font-weight-bold"><?= $title; ?></h3>
                     <br>
                     <div class="card">
                         <div class="card-body">
@@ -50,10 +50,10 @@
                                                             <td><?= $value['waktu']; ?></td>
                                                             <td><?= $value['tanggal']; ?></td>
                                                             <td>
-                                                                <button onclick="window.location.href='<?= base_url('admin/edit_tamu') ?>';" class="btn btn-primary ti-pencil-alt">
+                                                                <button onclick="window.location.href='<?= base_url('admin/edit_tamu/' . $value['id']) ?>';" class="btn btn-primary ti-pencil-alt">
                                                                 </button>
-                                                                <button class="btn btn-danger ti-trash">
-                                                                </button>
+                                                                <a href="<?= base_url('admin/hapus/' . $value['id']) ?>" onclick="return confirm('Apakah Anda ingin menghapus Data?')" class="btn btn-danger ti-trash">
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>

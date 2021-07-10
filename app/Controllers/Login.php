@@ -24,42 +24,66 @@ class Login extends BaseController
 
     public function cek_login()
     {
+        if ($this) {
+            $username = $this->request->getPost('username');
+            $password = $this->request->getPost('password');
+            $cek = $this->LoginModel->cek_login($username, $password);
+            if ($cek) {
+                session()->set('log', true);
+                session()->set('username', $cek['username']);
+                session()->set('nama', $cek['nama']);
+                session()->set('level', $cek['level']);
+
+                if (session()->get('level') == 'Admin Sekjen') {
+                    $data  = [
+                        'title' => 'Daftar Tamu Sekretaris Jenderal NOC Indonesia',
+                        'form' => $this->LoginModel->sekjen()
+                    ];
+                    return view('admin/index', $data);
+                } else if (session()->get('level') == 'Admin Ketum') {
+                    $data  = [
+                        'title' => 'Daftar Tamu Ketua Umum NOC Indonesia',
+                        'form' => $this->LoginModel->ketum()
+                    ];
+                    return view('admin/index', $data);
+                } else {
+                    $data  = [
+                        'title' => 'Daftar Tamu NOC Indonesia',
+                        'form' => $this->LoginModel->umum()
+                    ];
+                    return view('admin/index', $data);
+                }
+            } else {
+                session()->setFlashdata('gagal', 'Username atau Password Salah!!');
+                return redirect()->to(base_url('login'));
+            }
+        }
+    }
+
+    public function admin_menu()
+    {
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
-
         $cek = $this->LoginModel->cek_login($username, $password);
 
-        if ($cek['username'] == $username && $cek['password'] == $password) {
-            session()->set('log', true);
-            session()->set('username', $cek['username']);
-            session()->set('nama', $cek['nama']);
-            session()->set('level', $cek['level']);
-
-            if (session()->get('level') == 'Admin Sekjen') {
-                $data  = [
-                    'title' => 'Dashboard Buku Tamu | Komite Olimpiade Indonesia',
-                    'judul' => 'Daftar Tamu Sekretaris Jenderal NOC Indonesia',
-                    'form' => $this->LoginModel->sekjen()
-                ];
-                return view('admin/index', $data);
-            } else if (session()->get('level') == 'Admin Ketum') {
-                $data  = [
-                    'title' => 'Dashboard Buku Tamu | Komite Olimpiade Indonesia',
-                    'judul' => 'Daftar Tamu Ketua Umum NOC Indonesia',
-                    'form' => $this->LoginModel->ketum()
-                ];
-                return view('admin/index', $data);
-            } else {
-                $data  = [
-                    'title' => 'Dashboard Buku Tamu | Komite Olimpiade Indonesia',
-                    'judul' => 'Daftar Tamu NOC Indonesia',
-                    'form' => $this->LoginModel->umum()
-                ];
-                return view('admin/index', $data);
-            }
+        if (session()->get('level') == 'Admin Sekjen') {
+            $data  = [
+                'title' => 'Daftar Tamu Sekretaris Jenderal NOC Indonesia',
+                'form' => $this->LoginModel->sekjen()
+            ];
+            return view('admin/index', $data);
+        } else if (session()->get('level') == 'Admin Ketum') {
+            $data  = [
+                'title' => 'Daftar Tamu Ketua Umum NOC Indonesia',
+                'form' => $this->LoginModel->ketum()
+            ];
+            return view('admin/index', $data);
         } else {
-            session()->setFlashdata('gagal', 'Username atau Password Salah !!!');
-            return redirect()->to(base_url('login'));
+            $data  = [
+                'title' => 'Daftar Tamu NOC Indonesia',
+                'form' => $this->LoginModel->umum()
+            ];
+            return view('admin/index', $data);
         }
     }
 

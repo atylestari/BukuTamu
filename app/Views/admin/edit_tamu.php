@@ -5,7 +5,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="row">
-            <h3 class="card-title font-weight-bold">EDIT DATA TAMU</h3>
+            <h3 class="card-title font-weight-bold">Edit Data Tamu</h3>
             <br>
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -46,7 +46,7 @@
                                 <input type="date" class="form-control form-control-lg" id="tanggal" name="tanggal" required>
                             </div>
                             <button type="button" class="btn btn-lg btn-primary" name="update" value="update">Update</button>
-                            <button type="button" class="btn btn-secondary btn-lg" name="kembali" value="kembali">Kembali</button>
+                            <button type="button" onclick="window.location.href='<?= base_url('admin/kembali/') ?>';" class="btn btn-secondary btn-lg" name="kembali" value="kembali">Kembali</button>
                         </form>
                     </div>
                 </div>
