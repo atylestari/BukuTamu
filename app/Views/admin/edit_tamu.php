@@ -25,15 +25,34 @@
                             </div>
                             <?php if (session()->get('level') == 'Site Administrator') { ?>
                                 <div class="form-group">
+                                    <label><b>Wajib Dipilih</b> bila diubah</label>
                                     <select class="form-control" id="bertemu" name="bertemu" value="<?= $form['bertemu']; ?>" placeholder=" Bertemu Dengan" required>
                                         <option disabled>Bertemu dengan</option>
-                                        <option value="ketum">Ketua Umum</option>
-                                        <option value="sekjen">Sekertaris Jenderal</option>
-                                        <option value="lainnya">Lainnya</option>
+                                        <option value="Ketua Umum">Ketua Umum</option>
+                                        <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                                 <div id="jikalain" class="form-group">
-                                    <input type="text" class="form-control form-control-lg" id="jikalain" name="jikalain" value="<?= $form['lainnya']; ?>" placeholder=" Sebutkan (jika lainnya)" required>
+                                    <input type="text" class="form-control form-control-lg" id="jikalain" name="jikalain" value="<?= $form['lainnya']; ?>" placeholder=" Sebutkan (jika lainnya)">
+                                </div>
+                            <?php } ?>
+                            <?php if (session()->get('level') == 'Admin Ketum') { ?>
+                                <div class="form-group">
+                                    <label><b>Wajib Dipilih</b> bila diubah</label>
+                                    <select class="form-control" id="bertemu" name="bertemu" value="<?= $form['bertemu']; ?>" placeholder=" Bertemu Dengan" required>
+                                        <option disabled>Bertemu dengan</option>
+                                        <option value="Ketua Umum">Ketua Umum</option>
+                                    </select>
+                                </div>
+                            <?php } ?>
+                            <?php if (session()->get('level') == 'Admin Sekjen') { ?>
+                                <div class="form-group">
+                                    <label><b>Wajib Dipilih</b> bila diubah</label>
+                                    <select class="form-control" id="bertemu" name="bertemu" value="<?= $form['bertemu']; ?>" placeholder=" Bertemu Dengan" required>
+                                        <option disabled>Bertemu dengan</option>
+                                        <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
+                                    </select>
                                 </div>
                             <?php } ?>
                             <div class="form-group">
