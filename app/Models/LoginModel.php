@@ -20,6 +20,7 @@ class LoginModel extends Model
     {
         return $this->db->table('form')
             ->orderBy('tanggal', 'asc')
+            ->orderBy('waktu', 'asc')
             ->get()->getResultArray();
     }
 
@@ -27,6 +28,7 @@ class LoginModel extends Model
     {
         return $this->db->table('form')
             ->orderBy('tanggal', 'asc')
+            ->orderBy('waktu', 'asc')
             ->getWhere(array('bertemu' => 'Ketua Umum'))
             ->getResultArray();
     }
@@ -35,6 +37,7 @@ class LoginModel extends Model
     {
         return $this->db->table('form')
             ->orderBy('tanggal', 'asc')
+            ->orderBy('waktu', 'asc')
             ->getWhere(array('bertemu' => 'Sekretaris Jenderal'))
             ->getResultArray();
     }
