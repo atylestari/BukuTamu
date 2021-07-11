@@ -7,14 +7,14 @@
             </a>
         </li>
 
-        <?php if (session()->get('level') == 'Site Administrator') { ?>
+        <!-- ?php if (session()->get('level') == 'Site Administrator') { ?>
             <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="ti-user menu-icon"></i>
                     <span class="menu-title">Manage User</span>
                 </a>
             </li>
-        <?php } ?>
+        ?php } ?> -->
 
         <br>
         <li class="nav-item" onclick="logout('<?= base_url('login/logout'); ?>')">

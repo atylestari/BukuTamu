@@ -61,4 +61,30 @@ class Admin extends BaseController
         $this->AdminModel->ubah($data, $id);
         return redirect()->to(base_url('login/admin_menu'));
     }
+
+    public function tambah()
+    {
+        $data = [
+            'title' => 'Dashboard Buku Tamu | Komite Olimpiade Indonesia',
+        ];
+
+        return view('admin/tambah_data', $data);
+    }
+
+    public function tambah_data()
+    {
+        $data = array(
+            'nama'      => $this->request->getPost('nama'),
+            'instansi'  => $this->request->getPost('instansi'),
+            'email'     => $this->request->getPost('email'),
+            'kontak'    => $this->request->getPost('nomer'),
+            'bertemu'   => $this->request->getPost('bertemu'),
+            'lainnya'   => $this->request->getPost('jikalain'),
+            'keperluan' => $this->request->getPost('keperluan'),
+            'waktu'     => $this->request->getPost('waktu'),
+            'tanggal'   => $this->request->getPost('tanggal')
+        );
+        $this->FormModel->kirim($data);
+        return redirect()->to(base_url('login/admin_menu'));
+    }
 }

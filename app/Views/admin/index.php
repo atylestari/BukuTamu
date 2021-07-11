@@ -14,6 +14,10 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive" style="margin-right: -33vw;">
+                                        <div>
+                                            <button onclick="window.location.href='<?= base_url('admin/tambah/') ?>';" class="btn btn-primary">Tambah Data</button>
+                                        </div>
+                                        <br>
                                         <div class="table-responsive">
                                             <table class="table table-bordered text-center" id="dataTable">
                                                 <thead class="table-primary">
