@@ -8,16 +8,6 @@
 
     <title><?= $title; ?></title>
 
-    <script type="text/javascript">
-        function cek(that) {
-            if (that.value == "Lainnya") {
-                document.getElementById("jikalain").style.display = "block";
-            } else {
-                document.getElementById("jikalain").style.display = "none";
-            }
-        }
-    </script>
-
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/feather/feather.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/vendor.bundle.base.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/css/style.css">
@@ -46,6 +36,7 @@
                                         </div>
                                         <h3 class="text-center font-weight-bolder">FORM BUKU TAMU</h4>
                                             <br>
+                                            <?= form_open('home/kirim'); ?>
                                             <form class="forms-sample">
                                                 <?= csrf_field(); ?>
                                                 <div class="form-group">
@@ -61,15 +52,15 @@
                                                     <input type="tel" class="form-control form-control-lg" id="nomer" name="nomer" placeholder="Nomor Telepon" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <select onchange="cek(this)" class="form-control" id="bertemu" name="bertemu" placeholder="Bertemu Dengan" required>
+                                                    <select class="form-control" id="bertemu" name="bertemu" placeholder="Bertemu Dengan" required>
                                                         <option disabled>Bertemu dengan</option>
                                                         <option value="Ketua Umum">Ketua Umum</option>
                                                         <option value="Sekretaris Jenderal">Sekretaris Jenderal</option>
-                                                        <option onclick="cek()" value="Lainnya">Lainnya</option>
+                                                        <option value="Lainnya">Lainnya</option>
                                                     </select>
                                                 </div>
-                                                <div id="jikalain" class="form-group" style="display: none;">
-                                                    <input type="text" class="form-control form-control-lg" id="jikalain" name="jikalain" placeholder="Sebutkan (jika lainnya)" required>
+                                                <div id="jikalain" class="form-group">
+                                                    <input type="text" class="form-control form-control-lg" id="jikalain" name="jikalain" placeholder="Sebutkan (jika lainnya)">
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control form-control-lg" id="keperluan" name="keperluan" placeholder="Keperluan" required>
@@ -84,6 +75,7 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-primary btn-block" name="submit" value="Kirim">Kirim</button>
                                             </form>
+                                            <?= form_close(); ?>
                                     </div>
                                 </div>
                             </div>

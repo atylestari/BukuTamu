@@ -32,4 +32,21 @@ class Home extends BaseController
 		];
 		return view('form/thanks', $data);
 	}
+
+	public function kirim()
+	{
+		$data = array(
+			'nama'      => $this->request->getVar('nama'),
+			'instansi'  => $this->request->getVar('instansi'),
+			'email'     => $this->request->getVar('email'),
+			'kontak'    => $this->request->getVar('nomer'),
+			'bertemu'   => $this->request->getVar('bertemu'),
+			'lainnya'   => $this->request->getVar('jikalain'),
+			'keperluan' => $this->request->getVar('keperluan'),
+			'waktu' => $this->request->getVar('waktu'),
+			'tanggal' => $this->request->getVar('tanggal')
+		);
+		$this->FormModel->kirim($data);
+		return redirect()->to(base_url('Home/thanks'));
+	}
 }
