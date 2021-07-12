@@ -60,6 +60,16 @@ class Login extends BaseController
         }
     }
 
+    public function logout()
+    {
+        session()->remove('username');
+        session()->remove('nama');
+        session()->remove('level');
+
+        session()->setFlashdata('sukses', 'Anda Berhasil Logout !!!');
+        return redirect()->to(base_url('login'));
+    }
+
     public function admin_menu()
     {
         $username = $this->request->getPost('username');
@@ -85,15 +95,5 @@ class Login extends BaseController
             ];
             return view('admin/index', $data);
         }
-    }
-
-    public function logout()
-    {
-        session()->remove('username');
-        session()->remove('nama');
-        session()->remove('level');
-
-        session()->setFlashdata('sukses', 'Anda Berhasil Logout !!!');
-        return redirect()->to(base_url('login'));
     }
 }
